@@ -77,7 +77,7 @@ def fn_create(namespace, name, spec, body, **kwargs):
   port = spec.get("port")
   if not port:
     port = 8080
-  index_file = spec.get("index_file")
+  index_file = spec.get("index_html")
   if not index_file:
     index_file = str(get_default_index_file())
     

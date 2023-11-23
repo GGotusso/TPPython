@@ -23,7 +23,7 @@ spec:
       serviceAccountName: tppython-account
       containers:
       - name:  tppythonoperator
-        image:  tppython:latest
+        image:  ghcr.io/ggotusso/tppython:main
         resources:
           requests:
             cpu: 100m
@@ -64,8 +64,8 @@ rules:
     verbs: [create, patch]
 
   # Application: read-only access for watching cluster-wide.
-  - apiGroups: [kopf.dev]
-    resources: [tppythons]
+  - apiGroups: [tppython.grupo4.ultra.uaionline.edu]
+    resources: [tppythondeployment]
     verbs: [list, watch]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -87,16 +87,16 @@ rules:
 
   # Application: watching & handling for the custom resource we declare.
   - apiGroups: [tppython.grupo4.ultra.uaionline.edu]
-    resources: [TPPythonDeployment]
+    resources: [tppythondeployment]
     verbs: [list, watch, patch]
 
   # Application: other resources it produces and manipulates.
   # Here, we create Jobs+PVCs+Pods, but we do not patch/update/delete them ever.
   - apiGroups: ["apps"]
-    resources: [deployment]
+    resources: [deployments, deployments/scale]
     verbs: [list, read, create, patch, delete]
   - apiGroups: [""]
-    resources: [service, configmap]
+    resources: [services, configmaps]
     verbs: [list, read, create, patch, delete]
 ---
 apiVersion: rbac.authorization.k8s.io/v1

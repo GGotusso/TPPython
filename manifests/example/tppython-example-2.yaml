@@ -5,4 +5,16 @@ metadata:
   namespace: default
 spec:
   replicas: 3
-  port: 8080
+  port: 10000
+  index_html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Deployment</title>
+    </head>
+    <body>
+      <h1>Este es el despliegue de ejemplo N°2</h1>
+    </body>
+    </html>
