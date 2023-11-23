@@ -13,7 +13,10 @@ logging.basicConfig(filename="./log.log",
 logger = logging.getLogger("Operator Logger")
 logger.debug("INITIALIZING")
 
-config.load_kube_config()
+if os.environ.get('ENV') == 'DEV':
+  config.load_kube_config()
+else:
+  config.load_incluster_config()
 
 def get_default_index_file():
   path = os.path.dirname(__file__) + '/default_index.html'
