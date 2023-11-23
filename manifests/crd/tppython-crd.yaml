@@ -1,0 +1,32 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: tppythondeployment.tppython.grupo4.ultra.uaionline.edu
+spec:
+  group: tppython.grupo4.ultra.uaionline.edu
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                replicas:
+                  type: number
+                port:
+                  type: number
+                index_html:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: tppythondeployment
+    singular: tppythondeployment
+    kind: TPPythonDeployment
+    shortNames:
+    - tp
+    - tppython
+    - tpgrupo4

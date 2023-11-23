@@ -1,0 +1,8 @@
+apiVersion: tppython.grupo4.ultra.uaionline.edu/v1
+kind: TPPythonDeployment
+metadata:
+  name: deployment2
+  namespace: default
+spec:
+  replicas: 3
+  port: 8080
