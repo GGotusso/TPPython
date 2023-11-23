@@ -24,6 +24,7 @@ spec:
       containers:
       - name:  tppythonoperator
         image:  ghcr.io/ggotusso/tppython:main
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: 100m
