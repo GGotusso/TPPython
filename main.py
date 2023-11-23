@@ -24,7 +24,7 @@ def get_default_index_file():
     index = open(path, 'rt').read()
   except:
     kopf.PermanentError("Error on reading default index file")
-    raise FileExistsError
+    raise
   
   return index
 
